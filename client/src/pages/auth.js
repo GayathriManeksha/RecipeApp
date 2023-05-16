@@ -24,6 +24,7 @@ const Login=()=>{
     const onSubmit= async(event)=>{
         event.preventDefault();
         try{
+            console.log({username,password})
             const response =await axios.post("http://localhost:3001/auth/login",{username,password});
             
             if(response.data.message==="User doesn't exist")

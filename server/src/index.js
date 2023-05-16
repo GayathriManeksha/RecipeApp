@@ -18,9 +18,6 @@ app.use("/auth",userRouter);
 app.use("/recipes",recipesRouter);
 
 // if pushing in github need to use environment variables .before ? put the name of the specific database that we're connecting to.Here recipes
-mongoose.connect(process.env.MONGO_URL,{
-    useNewUrlParser:true,
-    useUnifiedTopology:true,
-});
+mongoose.connect(process.env.MONGO_URL);
 
 app.listen(3001,()=>console.log("SERVER STARTED"));

@@ -20,12 +20,17 @@ router.get("/",async (req,res)=>{
 
 // CREATE RECIPES
 router.post("/", verifyToken ,async (req,res)=>{
+    console.log("Creating Recipes------------")
+    // console.log(req)
     const recipe=new RecipeModel(req.body);
     try {
-        const response= recipe.save();
+        const response= await recipe.save();
+        console.log("Response here")
+        console.log(response)
         res.json(response);
     } catch (error) {
 
+        console.error("Error found")
         res.json(error);
     }
 });
